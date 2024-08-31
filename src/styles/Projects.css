@@ -1,0 +1,14 @@
+
+.projects-container {
+    width: 100%;
+    height: auto;
+    justify-content: center;
+}
+
+
+.projects-header {
+    text-align: center;
+    color: #CED4DA;
+    font-family: Roboto-BoldItalic;
+    font-size: 32px;
+}

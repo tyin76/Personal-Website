@@ -9,7 +9,7 @@ import greenLogo from '../images/Group 2.svg'
 import greyLogo from '../images/grey Logo.svg'
 
 
-export function CustomNavButton({navText}) {
+export function CustomNavButton({navText, clickEvent}) {
   return (
     <Button variant='text' sx={{
     color: '#CED4DA',
@@ -19,12 +19,14 @@ export function CustomNavButton({navText}) {
       backgroundColor: '#474B4F',
       borderBottom: '1px solid #CED4DA'
     }
-  }}>{navText}</Button>
+  }}
+  onClick={clickEvent}
+  >{navText}</Button>
   )
 }
 
 
-function NavBar() {
+function NavBar({ scrollToAbout, scrollToSkills }) {
   return (
     <>
     <div className='navbar-container'>
@@ -41,8 +43,8 @@ function NavBar() {
           justifyContent: 'center',
         }}
       >
-        <CustomNavButton navText='About' />
-        <CustomNavButton navText='Skills' />
+        <CustomNavButton navText='About' clickEvent={scrollToAbout}/>
+        <CustomNavButton navText='Skills' clickEvent={scrollToSkills}/>
         <CustomNavButton navText='Projects' />
         <CustomNavButton navText='Contact Me' />
       </Stack>
