@@ -26,7 +26,7 @@ export function CustomNavButton({navText, clickEvent}) {
 }
 
 
-function NavBar({ scrollToAbout, scrollToSkills }) {
+function NavBar({ scrollToAbout, scrollToSkills, scrollToProjects }) {
   return (
     <>
     <div className='navbar-container'>
@@ -45,7 +45,7 @@ function NavBar({ scrollToAbout, scrollToSkills }) {
       >
         <CustomNavButton navText='About' clickEvent={scrollToAbout}/>
         <CustomNavButton navText='Skills' clickEvent={scrollToSkills}/>
-        <CustomNavButton navText='Projects' />
+        <CustomNavButton navText='Projects' clickEvent={scrollToProjects}/>
         <CustomNavButton navText='Contact Me' />
       </Stack>
         </div> 

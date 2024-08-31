@@ -3,6 +3,7 @@
     width: 100%;
     height: auto;
     justify-content: center;
+    justify-items: center;
 }
 
 
@@ -11,4 +12,14 @@
     color: #CED4DA;
     font-family: Roboto-BoldItalic;
     font-size: 32px;
+}
+
+.project h2 {
+    text-align: center;
+}
+
+.project {
+    justify-self: center;
+    width: 100%;
+    
 }

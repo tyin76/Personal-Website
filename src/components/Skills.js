@@ -9,6 +9,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
 
 
 const languages = ['JavaScript', 'Java', 'C++', 'C', 'HTML/CSS'];
@@ -37,117 +38,55 @@ function Skills() {
         <h2 className='skills-header'>Skills</h2>
 
         <div className='tables-div'>
-        <TableContainer sx={{width: '33%', height: '100%'}} component={Paper}>
-      <Table aria-label="simple table">
-        <TableHead>
-          <TableRow sx={{
-            '& td, & th': {
-                fontFamily: 'Roboto-Italic',
-                fontSize: '22px',
-                backgroundColor:'#212529',
-                color: '#CED4DA'
-              }
-              }}>
-            <TableCell align="center">Languages</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {languages.map((lang) => (
-            <TableRow
-              
-              sx={{ 
-              '& td, & th': {
-                fontFamily: 'Roboto-Bold',
-                fontSize: '16px',
-                backgroundColor:'#212529',
-                color: '#CED4DA'
-              }
-            }}
-            >
-              <TableCell component="th" scope="row" align='center'>
-                {lang}
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+        <Stack 
+        direction='column' 
+        spacing={3}
+        textAlign={'center'}
+        sx={{
+          justifyContent: 'center',
+          p : '10px',
+          color: '#CED4DA'
+        }}
+      >
+        <h3 style={{ fontSize : '22px'}}>Languages</h3>
+        {languages.map((entry) => {
+          return <p style={{ fontSize : '18px'}} className='skills-content'>{entry}</p>
+        })}
+      </Stack>
+
+      <Stack 
+        direction='column' 
+        spacing={3}
+        textAlign={'center'}
+        sx={{
+          justifyContent: 'center',
+          p : '10px',
+          color: '#CED4DA'
+        }}
+      >
+        <h3 style={{ fontSize : '22px'}}>Frameworks / Libraries</h3>
+        {frameworksLib.map((entry) => {
+          return <p style={{ fontSize : '18px'}} className='skills-content'>{entry}</p>
+        })}
+      </Stack>
 
 
-    <TableContainer sx={{width: '33%', height: '100%'}} component={Paper}>
-      <Table aria-label="simple table">
-        <TableHead>
-          <TableRow sx={{
-            '& td, & th': {
-                fontFamily: 'Roboto-Italic',
-                fontSize: '22px',
-                backgroundColor:'#212529',
-                color: '#CED4DA'
-              }
-              }}>
-            <TableCell align="center">Frameworks / Libraries</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {frameworksLib.map((entry) => (
-            <TableRow
-              
-              sx={{ 
-              '& td, & th': {
-                fontFamily: 'Roboto-Bold',
-                fontSize: '16px',
-                backgroundColor:'#212529',
-                color: '#CED4DA',
-                borderBottom: '1px solid #CED4DA',
-              }
-            }}
-            >
-              <TableCell component="th" scope="row" align='center'>
-                {entry}
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-
+      <Stack 
+        direction='column' 
+        spacing={3}
+        textAlign={'center'}
+        sx={{
+          justifyContent: 'center',
+          p : '10px',
+          color: '#CED4DA'
+        }}
+      >
+        <h3 style={{ fontSize : '22px'}}>Tools</h3>
+        {tools.map((entry) => {
+          return <p style={{ fontSize : '18px'}} className='skills-content'>{entry}</p>
+        })}
+      </Stack>
     
-    
-    <TableContainer sx={{width: '33%', height: '100%'}} component={Paper}>
-      <Table aria-label="simple table">
-        <TableHead>
-          <TableRow sx={{
-            '& td, & th': {
-                fontFamily: 'Roboto-Italic',
-                fontSize: '22px',
-                backgroundColor:'#212529',
-                color: '#CED4DA'
-              }
-              }}>
-            <TableCell align="center">Tools</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {tools.map((entry) => (
-            <TableRow
-              
-              sx={{ 
-              '& td, & th': {
-                fontFamily: 'Roboto-Bold',
-                fontSize: '16px',
-                backgroundColor:'#212529',
-                color: '#CED4DA'
-              }
-            }}
-            >
-              <TableCell component="th" scope="row" align='center'>
-                {entry}
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
     
 
         </div>      

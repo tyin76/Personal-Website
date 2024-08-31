@@ -12,6 +12,7 @@ function App() {
 
   const aboutMeRef = useRef(null);
   const skillsRef = useRef(null);
+  const projectRef = useRef(null);
 
   const scrollToComponent = (ref) => {
     ref.current.scrollIntoView({ behavior : 'smooth' })
@@ -24,7 +25,8 @@ function App() {
         <header className="App-header">
           <NavBar 
           scrollToAbout={() => scrollToComponent(aboutMeRef)}
-          scrollToSkills={() => scrollToComponent(skillsRef)}>
+          scrollToSkills={() => scrollToComponent(skillsRef)}
+          scrollToProjects={() => scrollToComponent(projectRef)}>
 
           </NavBar>
         </header>
@@ -46,7 +48,7 @@ function App() {
         <div className='separator'>
         </div>
 
-        <div className='projects-div'>
+        <div className='projects-div' ref={projectRef}>
             <Projects>
               
             </Projects>
