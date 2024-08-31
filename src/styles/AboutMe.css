@@ -1,0 +1,23 @@
+
+.portrait {
+    width: 300px;
+    border-radius: 30%;
+}
+
+
+.about-me-comp {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 30px;
+    
+}
+
+.about-me-text-comp {
+    padding: 15px;
+    font-family: Roboto-BlackItalic;
+    color: #E9ECEF;
+    font-size: 30px;
+}

@@ -6,16 +6,18 @@ import '../styles/Fonts.css'
 import '../styles/NavBar.css'
 import logo from '../images/TY Logo.svg'
 import greenLogo from '../images/Group 2.svg'
+import greyLogo from '../images/grey Logo.svg'
 
 
 export function CustomNavButton({navText}) {
   return (
     <Button variant='text' sx={{
-    color: '#86C232',
+    color: '#CED4DA',
     fontFamily: 'Roboto-BoldItalic',
     fontSize: '20px',
     '&:hover' : {
-      backgroundColor: '#474B4F'
+      backgroundColor: '#474B4F',
+      borderBottom: '1px solid #CED4DA'
     }
   }}>{navText}</Button>
   )
@@ -28,7 +30,7 @@ function NavBar() {
     <div className='navbar-container'>
     {/* <Logo width='195px' height='80px' className='navbar-logo' /> */}
     <div className='logo-div'>
-    <img src={greenLogo} width='195px' height='80px' className='navbar-logo'></img>
+    <img src={greyLogo} width='195px' height='80px' className='navbar-logo'></img>
     </div>
 
         <div className='stack-container'> 
@@ -40,7 +42,6 @@ function NavBar() {
         }}
       >
         <CustomNavButton navText='About' />
-        <CustomNavButton navText='Experience' />
         <CustomNavButton navText='Skills' />
         <CustomNavButton navText='Projects' />
         <CustomNavButton navText='Contact Me' />
