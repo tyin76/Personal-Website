@@ -4,6 +4,7 @@ import './styles/Fonts.css'
 import yinYang from './images/yy.svg'
 import NavBar from './components/NavBar.js'
 import AboutMe from './components/AboutMe.js';
+import Skills from './components/Skills.js'
 
 function App() {
   return (
@@ -16,8 +17,14 @@ function App() {
 
         <div className='about-me'>
             <AboutMe></AboutMe>
-
         </div>
+
+        <div className='separator'>
+        </div>
+
+        <Skills>
+          
+        </Skills>
 
 
       </div>

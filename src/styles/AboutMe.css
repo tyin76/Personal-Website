@@ -2,6 +2,7 @@
 .portrait {
     width: 300px;
     border-radius: 30%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 
@@ -12,12 +13,32 @@
     flex-direction: row;
     align-items: center;
     padding-top: 30px;
-    
+    opacity: 0;
 }
 
 .about-me-text-comp {
     padding: 15px;
-    font-family: Roboto-BlackItalic;
+    font-family: Roboto-Medium;
     color: #E9ECEF;
     font-size: 30px;
 }
+
+.about-me-text-comp b{
+    font-family: Roboto-MediumItalic;
+}
+
+
+  @keyframes fadeInAndSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .about-me-comp.fade-in {
+    animation: fadeInAndSlideUp 1.4s ease-in-out forwards;
+  }

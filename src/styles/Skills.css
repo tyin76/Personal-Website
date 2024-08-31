@@ -1,0 +1,39 @@
+.skills-container {
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    opacity: 0;
+}
+
+.skills-header {
+    text-align: center;
+    color: #CED4DA;
+    font-family: Roboto-BoldItalic;
+    font-size: 32px;
+}
+
+.tables-div {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    justify-content: center;
+    justify-self: center;
+    align-self: center;
+}
+
+@keyframes fadeInAndSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .skills-container.fade-in {
+    animation: fadeInAndSlideUp 1.4s ease-in-out forwards;
+  }
