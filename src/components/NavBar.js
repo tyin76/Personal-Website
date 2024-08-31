@@ -3,9 +3,9 @@ import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import '../styles/Fonts.css'
-import yy from './Logo.js';
 import '../styles/NavBar.css'
-import Logo from '../components/Logo.js'
+import logo from '../images/TY Logo.svg'
+import greenLogo from '../images/Group 2.svg'
 
 
 export function CustomNavButton({navText}) {
@@ -21,26 +21,37 @@ export function CustomNavButton({navText}) {
   )
 }
 
+
 function NavBar() {
-
-  
-
   return (
     <>
-    <nav>
-    <Logo width={'150px'} height={'150px'} className='navbar-logo'></Logo>
-        <Stack spacing={3} direction={'row'} sx={{
-          p : 1,
-          justifyContent: 'center',
-          }}>
-            <CustomNavButton navText={'About'}></CustomNavButton>
-            <CustomNavButton navText={'Experience'}></CustomNavButton>
-            <CustomNavButton navText={'Skills'}></CustomNavButton>
-            <CustomNavButton navText={'Projects'}></CustomNavButton>
-        </Stack>
+    <div className='navbar-container'>
+    {/* <Logo width='195px' height='80px' className='navbar-logo' /> */}
+    <div className='logo-div'>
+    <img src={greenLogo} width='195px' height='80px' className='navbar-logo'></img>
+    </div>
 
-    </nav>
-    </>
+        <div className='stack-container'> 
+      <Stack 
+        direction='row' 
+        spacing={3} 
+        sx={{
+          justifyContent: 'center',
+        }}
+      >
+        <CustomNavButton navText='About' />
+        <CustomNavButton navText='Experience' />
+        <CustomNavButton navText='Skills' />
+        <CustomNavButton navText='Projects' />
+        <CustomNavButton navText='Contact Me' />
+      </Stack>
+        </div> 
+        
+      </div>
+
+      </>
+
+    
   )
 }
 
