@@ -27,7 +27,6 @@ function App() {
           scrollToAbout={() => scrollToComponent(aboutMeRef)}
           scrollToSkills={() => scrollToComponent(skillsRef)}
           scrollToProjects={() => scrollToComponent(projectRef)}>
-
           </NavBar>
         </header>
 

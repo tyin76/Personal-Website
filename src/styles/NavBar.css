@@ -1,15 +1,17 @@
 
 .navbar-container {
     width: 100%;
-    height: auto;
+    height: 84px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     padding-top: 10px;
     flex-direction: row;
     position: relative;
+    z-index: 999;
 }
 
 .navbar-logo {
     filter: drop-shadow(0 0 0.75rem #DEE2E6);
 }
+
