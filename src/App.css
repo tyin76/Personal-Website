@@ -10,3 +10,9 @@ body {
     margin-left: 25%;
     margin-right: 25%;
 }
+
+.copyright {
+    text-align: center;
+    font-family: Roboto-BoldItalic;
+    color: #DEE2E6;
+}

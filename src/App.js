@@ -54,6 +54,10 @@ function App() {
 
         </div>
 
+        <div className='copyright'>
+            <h3>Copyright © 2024 Terence Yin</h3>
+        </div>
+
 
       </div>
     </div>

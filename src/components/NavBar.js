@@ -1,11 +1,8 @@
 import React from 'react'
 import Stack from '@mui/material/Stack';
-import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import '../styles/Fonts.css'
 import '../styles/NavBar.css'
-import logo from '../images/TY Logo.svg'
-import greenLogo from '../images/Group 2.svg'
 import greyLogo from '../images/grey Logo.svg'
 
 
@@ -25,12 +22,13 @@ export function CustomNavButton({navText, clickEvent}) {
   )
 }
 
+const email = 'terence.yin76@gmail.com'
+
 
 function NavBar({ scrollToAbout, scrollToSkills, scrollToProjects }) {
   return (
     <>
     <div className='navbar-container'>
-    {/* <Logo width='195px' height='80px' className='navbar-logo' /> */}
     <div className='logo-div'>
     <img src={greyLogo} width='195px' height='80px' className='navbar-logo'></img>
     </div>
@@ -46,7 +44,9 @@ function NavBar({ scrollToAbout, scrollToSkills, scrollToProjects }) {
         <CustomNavButton navText='About' clickEvent={scrollToAbout}/>
         <CustomNavButton navText='Skills' clickEvent={scrollToSkills}/>
         <CustomNavButton navText='Projects' clickEvent={scrollToProjects}/>
-        <CustomNavButton navText='Contact Me' />
+        <CustomNavButton navText='Contact Me' clickEvent={(e) => {
+          window.location.href=`mailto:${email}`
+          }}/>
       </Stack>
         </div> 
         
