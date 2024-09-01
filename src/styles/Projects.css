@@ -23,3 +23,14 @@
     width: 100%;
     
 }
+
+.links {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+.links a {
+    padding: 5px;
+    font-size: 18px;
+}

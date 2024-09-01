@@ -89,7 +89,7 @@ function Image({ src }) {
   return <img style={{ padding: 20, borderRadius : '3em' }} src={src}></img>
 }
 
-function Project({projectName, photoAlbum, projectPoints, cols}) {
+function Project({projectName, photoAlbum, projectPoints, cols, repo, siteURL}) {
   return (
     <div className='project'>
       <Box component={'section'}
@@ -112,6 +112,24 @@ function Project({projectName, photoAlbum, projectPoints, cols}) {
           })}
 
         </ul>
+
+        <div className='links'>
+        <a
+        href={siteURL}
+        target="_blank" 
+        rel="noopener noreferrer"
+        style={{ fontFamily: 'Roboto-BoldItalic'}}>
+        Website
+        </a>
+
+        <a
+        href={repo}
+        target="_blank" 
+        rel="noopener noreferrer"
+        style={{ fontFamily: 'Roboto-BoldItalic'}}>
+        GitHub Repo
+        </a>
+        </div>
 
         <ImageList sx={{ width: '100%', height: 'auto', marginTop : 0 }} cols={cols} rowHeight='auto'>
       {photoAlbum.map((item) => (
@@ -143,9 +161,13 @@ function Projects() {
       <h2 className='projects-header'>Projects</h2>
 
           
-          <Project projectName={'F1-Showcase'} photoAlbum={F1Photos} projectPoints={f1ProjectPoints} cols={2}></Project>
+          <Project projectName={'F1-Showcase'} photoAlbum={F1Photos} projectPoints={f1ProjectPoints} cols={2}
+                   siteURL={'https://f1-showcase.web.app/'} repo={'https://github.com/tyin76/Upgraded-Formula-1-Showcase'}
+          ></Project>
           
-          <Project projectName={'VitAlert'} photoAlbum={vitAlertPhotos} projectPoints={vitAlertProjectPoints} cols={3}></Project>
+          <Project projectName={'VitAlert'} photoAlbum={vitAlertPhotos} projectPoints={vitAlertProjectPoints} cols={3}
+                   siteURL={'https://vitalert.tech/'} repo={'https://github.com/tyin76/VitAlert-nwHacks-2024'}
+          ></Project>
           
           
     </div>
