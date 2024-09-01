@@ -9,9 +9,10 @@ import Box from '@mui/material/Box';
 import { Stack } from '@mui/material';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
+import Button from '@mui/material/Button';
 
 
-const f1ProjectPoints = ['Developed and deployed with React and FireBase', 'Displays real-time driver and team rankings, comprehensive statistics, race schedules, and detailed results for both current and past races.' ];
+const f1ProjectPoints = ['Developed and deployed with React and FireBase', 'Displays real-time driver and team rankings, comprehensive statistics, race schedules, an interactive quiz, and detailed results for both current and past races.' ];
 
 const F1Photos = [
   {
@@ -85,10 +86,6 @@ const vitAlertPhotos = [
   },
 ]
 
-function Image({ src }) {
-  return <img style={{ padding: 20, borderRadius : '3em' }} src={src}></img>
-}
-
 function Project({projectName, photoAlbum, projectPoints, cols, repo, siteURL}) {
   return (
     <div className='project'>
@@ -118,8 +115,13 @@ function Project({projectName, photoAlbum, projectPoints, cols, repo, siteURL}) 
         href={siteURL}
         target="_blank" 
         rel="noopener noreferrer"
-        style={{ fontFamily: 'Roboto-BoldItalic'}}>
-        Website
+        style={{ fontFamily: 'Roboto-BoldItalic', width: 'auto'}}>
+        <Button variant='contained'
+        sx={{ fontFamily: 'Roboto-BoldItalic', backgroundColor: '#343A40', 
+        color: '#CED4DA', 
+        width:'auto', 
+        display: 'inline-block'}}>
+          Visit Site</Button>
         </a>
 
         <a
@@ -127,7 +129,9 @@ function Project({projectName, photoAlbum, projectPoints, cols, repo, siteURL}) 
         target="_blank" 
         rel="noopener noreferrer"
         style={{ fontFamily: 'Roboto-BoldItalic'}}>
-        GitHub Repo
+        <Button variant='contained'
+        sx={{ fontFamily: 'Roboto-BoldItalic', backgroundColor: '#DEE2E6', color: '#343A40'}}>
+        GitHub Repo</Button>
         </a>
         </div>
 
