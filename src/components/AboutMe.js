@@ -25,7 +25,7 @@ function AboutMe() {
     <div className={`about-me-comp ${isVisible ? 'fade-in' : ''}`}>
       <div>
       <h3 className='about-me-text-comp'>
-        Hi, my name is <b>Terence</b>. <br />
+        Hi, my name is <b>Terence Yin</b>. <br />
         I am a Computer Science student <br />
         at The University of British Columbia!
         </h3>
