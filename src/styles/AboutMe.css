@@ -1,54 +1,54 @@
 
 .portrait {
-    width: 300px;
-    border-radius: 30%;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  width: 300px;
+  border-radius: 30%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 
 .about-me-comp {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
-    padding-top: 30px;
-    opacity: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 30px;
+  opacity: 0;
 }
 
 .about-me-text-comp {
-    padding: 15px;
-    font-family: Roboto-Thin;
-    color: #E9ECEF;
-    font-size: 30px;
+  padding: 15px;
+  font-family: Roboto-Thin;
+  color: #E9ECEF;
+  font-size: 30px;
 }
 
 .about-me-text-comp b{
-    font-family: Roboto-MediumItalic;
+  font-family: Roboto-MediumItalic;
 }
 
 
-  @keyframes fadeInAndSlideUp {
-    0% {
-      opacity: 0;
-      transform: translateY(50px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+@keyframes fadeInAndSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
   }
-  
-  .about-me-comp.fade-in {
-    animation: fadeInAndSlideUp 1.4s ease-in-out forwards;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+.about-me-comp.fade-in {
+  animation: fadeInAndSlideUp 1.4s ease-in-out forwards;
+}
 
 .icons:hover {
-  transform: scale(1.2);
-  transition: 0.2s ease-in;
+transform: scale(1.2);
+transition: 0.2s ease-in;
 }
 
 .icons {
-  transition: 0.2s ease-in;
-  filter: drop-shadow(0 0 0.5rem #DEE2E6);
+transition: 0.2s ease-in;
+filter: drop-shadow(0 0 0.5rem #DEE2E6);
 }
