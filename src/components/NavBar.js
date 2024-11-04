@@ -94,7 +94,7 @@ function NavBar({ scrollToAbout, scrollToSkills, scrollToProjects }) {
           navText= {<FontAwesomeIcon icon={faBars} />}
           clickEvent={() => setOpen(true)}
           sx={{
-            position: 'fixed',  
+            position: 'relative',  
             right: '10px',
           }}
         />
