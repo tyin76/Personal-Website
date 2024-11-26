@@ -12,11 +12,11 @@ import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 
 
-const languages = ['JavaScript', 'Java', 'C++', 'C', 'HTML/CSS'];
+const languages = ['JavaScript', 'TypeScript', 'Java', 'SQL', 'HTML', 'CSS'];
 
-const frameworksLib = ['React.js', 'Node.js', 'Material UI (MUI)'];
+const frameworksLib = ['React.js', 'Node.js', 'Mocha', 'Chai'];
 
-const tools = ['FireBase','GitHub','JUnit','WordPress','VS-Code'];
+const tools = ['FireBase','JUnit', 'Git', 'GitHub'];
 
 
 function Skills() {

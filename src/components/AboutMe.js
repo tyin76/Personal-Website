@@ -41,7 +41,7 @@ const SocialIcon = styled(IconButton)(({ theme }) => ({
 }));
 
 const CustomTypography = styled(Typography)({
-  fontFamily: 'Roboto-Bold',
+  fontFamily: 'Roboto-Medium',
   color: '#CED4DA'
 });
 
