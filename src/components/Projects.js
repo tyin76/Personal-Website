@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import '../styles/Projects.css'
 import HomePagePic from '../images/HomePage.svg'
 
@@ -202,7 +202,9 @@ function Project({projectName, photoAlbum, projectPoints, cols, repo, siteURL, t
         sx={{ fontFamily: 'Roboto-BoldItalic', backgroundColor: '#DEE2E6', color: '#343A40'}}>
         GitHub Repo</Button>
         </a>
+        
         </div>
+      
 
         <ImageList sx={{ width: '100%', height: 'auto', marginTop : 0 }} cols={cols} rowHeight='auto'>
       {photoAlbum.map((item) => (
@@ -228,15 +230,118 @@ function Project({projectName, photoAlbum, projectPoints, cols, repo, siteURL, t
   )
 }
 
+function ProjectWithDevpost({projectName, photoAlbum, projectPoints, cols, repo, siteURL, techStack=['hello', 'bye'], devpost}) {
+  return (
+    <div className='project'>
+      <Box component={'section'}
+          sx={{ p: 2, border: '1px solid grey',
+                width:'80%',
+                margin: '0 auto',
+                backgroundColor: '#ADB5BD',
+                borderRadius: '1em',
+                boxShadow: '0 0 2rem #6C757D',
+                marginBottom: '30px' 
+          }}>
+            
+      <Stack
+      direction={'column'}
+      textAlign={'center'}>
+        <h2 style={{ color: '#212529', marginTop : 0, fontFamily: 'Roboto-BoldItalic'}}>{projectName}</h2>
+        <ul style={{ paddingLeft: 40, textAlign: 'left', marginTop: 0, fontSize: '20px'}}>
+          {projectPoints.map((entry) => {
+            return <li style={{ color: '#212529', fontFamily: 'Roboto-MediumItalic'}}>{entry}</li>
+          })}
+
+        </ul>
+        
+        <Box sx={{
+          textAlign: 'left',
+          color: '#212529',
+          fontFamily: 'Roboto-MediumItalic',
+          fontSize: '20px', 
+        }}>
+        <Typography sx={{
+          fontFamily: 'Roboto-BoldItalic',
+          fontSize: '20px',
+          paddingLeft: '20px'
+        }}>Tech Stack:</Typography>
+        <ul>
+          {techStack.map((entry, index) => {
+            return <li key={index}>{entry}</li>
+          })}
+        </ul>
+        </Box>
+
+        <div className='links'>
+        <a
+        href={siteURL}
+        target="_blank" 
+        rel="noopener noreferrer"
+        style={{ fontFamily: 'Roboto-BoldItalic', width: 'auto'}}>
+        <Button variant='contained'
+        sx={{ fontFamily: 'Roboto-BoldItalic', backgroundColor: '#343A40', 
+        color: '#CED4DA', 
+        width:'auto', 
+        display: 'inline-block'}}>
+          Visit Site</Button>
+        </a>
+
+        <a
+        href={repo}
+        target="_blank" 
+        rel="noopener noreferrer"
+        style={{ fontFamily: 'Roboto-BoldItalic'}}>
+        <Button variant='contained'
+        sx={{ fontFamily: 'Roboto-BoldItalic', backgroundColor: '#DEE2E6', color: '#343A40'}}>
+        GitHub Repo</Button>
+        </a>
+
+        <a
+        href={devpost}
+        target="_blank" 
+        rel="noopener noreferrer"
+        style={{ fontFamily: 'Roboto-BoldItalic'}}>
+        <Button variant='contained'
+        sx={{ fontFamily: 'Roboto-BoldItalic', backgroundColor: '#343A40', color: '#CED4DA'}}>
+        Visit Devpost</Button>
+        </a>
+        
+        </div>
+      
+
+        <ImageList sx={{ width: '100%', height: 'auto', marginTop : 0 }} cols={cols} rowHeight='auto'>
+      {photoAlbum.map((item) => (
+        <ImageListItem key={item.img}>
+          <img
+            srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+            src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+            alt={item.title}
+            loading="lazy"
+            style={{ borderRadius : '2em' }}
+          />
+        </ImageListItem>
+      ))}
+    </ImageList>
+
+
+      </Stack>
+      </Box>
+
+
+
+    </div>
+  )
+} 
+
 function Projects() {
   return (
     <div className='projects-container'>
       <h2 className='projects-header'>Projects</h2>
 
           
-          <Project projectName={'Sum-Up Sundae - nwHacks 2025 Winner'} photoAlbum={sundaePhotos} projectPoints={sundaePoints} cols={2}
-                   siteURL={'https://scriber-126cc.web.app/'} repo={'https://github.com/tyin76/Scriber'} techStack={['React', 'JavaScript', 'Tailwind', 'Express', 'Node', 'MongoDB', 'Livepeer']}>
-          </Project>
+          <ProjectWithDevpost projectName={'Sum-Up Sundae - nwHacks 2025 Winner'} photoAlbum={sundaePhotos} projectPoints={sundaePoints} cols={2}
+                   siteURL={'https://sum-up-sundae.web.app/'} repo={'https://github.com/tyin76/sum-up-sundae'} techStack={['React', 'JavaScript', 'Tailwind', 'Express', 'Node', 'MongoDB', 'Livepeer']} devpost={'https://devpost.com/software/sum-up-sundae'}>
+          </ProjectWithDevpost>
           
           <Project projectName={'Scriber'} photoAlbum={ScriberPhotos} projectPoints={ScriberPoints} cols={2}
                    siteURL={'https://scriber-126cc.web.app/'} repo={'https://github.com/tyin76/Scriber'} techStack={['React', 'JavaScript', 'MongoDB', 'Express', 'OpenAI', 'FireBase']}>
@@ -247,7 +352,7 @@ function Projects() {
           ></Project>
           
           <Project projectName={'VitAlert'} photoAlbum={vitAlertPhotos} projectPoints={vitAlertProjectPoints} cols={3}
-                   siteURL={'https://vitalert.tech/'} repo={'https://github.com/tyin76/VitAlert-nwHacks-2024'} techStack={['React', 'TypeScript', 'HTML', 'CSS', 'FireBase']}
+                   siteURL={'https://nw-hackers.web.app/'} repo={'https://github.com/tyin76/VitAlert-nwHacks-2024'} techStack={['React', 'TypeScript', 'HTML', 'CSS', 'FireBase']}
           ></Project>
           
           
