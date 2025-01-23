@@ -344,7 +344,7 @@ function Projects() {
           </ProjectWithDevpost>
           
           <Project projectName={'Scriber'} photoAlbum={ScriberPhotos} projectPoints={ScriberPoints} cols={2}
-                   siteURL={'https://scriber-126cc.web.app/'} repo={'https://github.com/tyin76/Scriber'} techStack={['React', 'JavaScript', 'MongoDB', 'Express', 'OpenAI', 'FireBase']}>
+                   siteURL={'https://scriber-126cc.web.app/'} repo={'https://github.com/tyin76/Scriber'} techStack={['React', 'JavaScript', 'Node', 'MongoDB', 'Express', 'OpenAI', 'FireBase']}>
           </Project>
 
           <Project projectName={'F1-Showcase'} photoAlbum={F1Photos} projectPoints={f1ProjectPoints} cols={2}
