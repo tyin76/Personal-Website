@@ -137,7 +137,37 @@ const sundaePhotos = [
   },
 ]
 
-function Project({projectName, photoAlbum, projectPoints, cols, repo, siteURL, techStack=['hello', 'bye']}) {
+const InsightPoints = ["UBC Insights is a web application that allows users to upload and query course data from over 60 000 sections to gain insights about averages, professors, and trends"];
+
+const InsightPhotos = [
+  {
+    title: 'Photo',
+    img: require('../images/Insight-1.png')
+  },
+  {
+    title: 'Photo',
+    img: require('../images/Insight-2.png')
+  },
+  {
+    title: 'Photo',
+    img: require('../images/Insight-3.png')
+  },
+  {
+    title: 'Photo',
+    img: require('../images/Insight-4.png')
+  },
+  {
+    title: 'Photo',
+    img: require('../images/Insight-5.png')
+  },
+  {
+    title: 'Photo',
+    img: require('../images/Insight-6.png')
+  }
+
+]
+
+function Project({projectName, photoAlbum, projectPoints, cols, repo, siteURL, techStack=['hello', 'bye'], showSite=true, showDevpost=false, devpost=''}) {
   return (
     <div className='project'>
       <Box component={'section'}
@@ -180,7 +210,8 @@ function Project({projectName, photoAlbum, projectPoints, cols, repo, siteURL, t
         </Box>
 
         <div className='links'>
-        <a
+        
+        {showSite && <a
         href={siteURL}
         target="_blank" 
         rel="noopener noreferrer"
@@ -192,6 +223,7 @@ function Project({projectName, photoAlbum, projectPoints, cols, repo, siteURL, t
         display: 'inline-block'}}>
           Visit Site</Button>
         </a>
+        }
 
         <a
         href={repo}
@@ -202,6 +234,16 @@ function Project({projectName, photoAlbum, projectPoints, cols, repo, siteURL, t
         sx={{ fontFamily: 'Roboto-BoldItalic', backgroundColor: '#DEE2E6', color: '#343A40'}}>
         GitHub Repo</Button>
         </a>
+
+        {showDevpost && <a
+        href={devpost}
+        target="_blank" 
+        rel="noopener noreferrer"
+        style={{ fontFamily: 'Roboto-BoldItalic'}}>
+        <Button variant='contained'
+        sx={{ fontFamily: 'Roboto-BoldItalic', backgroundColor: '#343A40', color: '#CED4DA'}}>
+        Visit Devpost</Button>
+        </a>}
         
         </div>
       
@@ -230,121 +272,22 @@ function Project({projectName, photoAlbum, projectPoints, cols, repo, siteURL, t
   )
 }
 
-function ProjectWithDevpost({projectName, photoAlbum, projectPoints, cols, repo, siteURL, techStack=['hello', 'bye'], devpost}) {
-  return (
-    <div className='project'>
-      <Box component={'section'}
-          sx={{ p: 2, border: '1px solid grey',
-                width:'80%',
-                margin: '0 auto',
-                backgroundColor: '#ADB5BD',
-                borderRadius: '1em',
-                boxShadow: '0 0 2rem #6C757D',
-                marginBottom: '30px' 
-          }}>
-            
-      <Stack
-      direction={'column'}
-      textAlign={'center'}>
-        <h2 style={{ color: '#212529', marginTop : 0, fontFamily: 'Roboto-BoldItalic'}}>{projectName}</h2>
-        <ul style={{ paddingLeft: 40, textAlign: 'left', marginTop: 0, fontSize: '20px'}}>
-          {projectPoints.map((entry) => {
-            return <li style={{ color: '#212529', fontFamily: 'Roboto-MediumItalic'}}>{entry}</li>
-          })}
-
-        </ul>
-        
-        <Box sx={{
-          textAlign: 'left',
-          color: '#212529',
-          fontFamily: 'Roboto-MediumItalic',
-          fontSize: '20px', 
-        }}>
-        <Typography sx={{
-          fontFamily: 'Roboto-BoldItalic',
-          fontSize: '20px',
-          paddingLeft: '20px'
-        }}>Tech Stack:</Typography>
-        <ul>
-          {techStack.map((entry, index) => {
-            return <li key={index}>{entry}</li>
-          })}
-        </ul>
-        </Box>
-
-        <div className='links'>
-        <a
-        href={siteURL}
-        target="_blank" 
-        rel="noopener noreferrer"
-        style={{ fontFamily: 'Roboto-BoldItalic', width: 'auto'}}>
-        <Button variant='contained'
-        sx={{ fontFamily: 'Roboto-BoldItalic', backgroundColor: '#343A40', 
-        color: '#CED4DA', 
-        width:'auto', 
-        display: 'inline-block'}}>
-          Visit Site</Button>
-        </a>
-
-        <a
-        href={repo}
-        target="_blank" 
-        rel="noopener noreferrer"
-        style={{ fontFamily: 'Roboto-BoldItalic'}}>
-        <Button variant='contained'
-        sx={{ fontFamily: 'Roboto-BoldItalic', backgroundColor: '#DEE2E6', color: '#343A40'}}>
-        GitHub Repo</Button>
-        </a>
-
-        <a
-        href={devpost}
-        target="_blank" 
-        rel="noopener noreferrer"
-        style={{ fontFamily: 'Roboto-BoldItalic'}}>
-        <Button variant='contained'
-        sx={{ fontFamily: 'Roboto-BoldItalic', backgroundColor: '#343A40', color: '#CED4DA'}}>
-        Visit Devpost</Button>
-        </a>
-        
-        </div>
-      
-
-        <ImageList sx={{ width: '100%', height: 'auto', marginTop : 0 }} cols={cols} rowHeight='auto'>
-      {photoAlbum.map((item) => (
-        <ImageListItem key={item.img}>
-          <img
-            srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-            src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-            alt={item.title}
-            loading="lazy"
-            style={{ borderRadius : '2em' }}
-          />
-        </ImageListItem>
-      ))}
-    </ImageList>
-
-
-      </Stack>
-      </Box>
-
-
-
-    </div>
-  )
-} 
-
 function Projects() {
   return (
     <div className='projects-container'>
       <h2 className='projects-header'>Projects</h2>
 
           
-          <ProjectWithDevpost projectName={'Sum-Up Sundae - nwHacks 2025 Winner'} photoAlbum={sundaePhotos} projectPoints={sundaePoints} cols={2}
-                   siteURL={'https://sum-up-sundae.web.app/'} repo={'https://github.com/tyin76/sum-up-sundae'} techStack={['React', 'JavaScript', 'Tailwind', 'Express', 'Node', 'MongoDB', 'Livepeer']} devpost={'https://devpost.com/software/sum-up-sundae'}>
-          </ProjectWithDevpost>
+          <Project projectName={'Sum-Up Sundae - nwHacks 2025 Winner'} photoAlbum={sundaePhotos} projectPoints={sundaePoints} cols={2}
+                   siteURL={'https://sum-up-sundae.web.app/'} repo={'https://github.com/tyin76/sum-up-sundae'} techStack={['React', 'JavaScript', 'Tailwind', 'Express', 'Node', 'MongoDB', 'Livepeer']} devpost={'https://devpost.com/software/sum-up-sundae'} showDevpost={true}>
+          </Project>
           
           <Project projectName={'Scriber'} photoAlbum={ScriberPhotos} projectPoints={ScriberPoints} cols={2}
                    siteURL={'https://scriber-126cc.web.app/'} repo={'https://github.com/tyin76/Scriber'} techStack={['React', 'JavaScript', 'Node', 'MongoDB', 'Express', 'OpenAI', 'FireBase']}>
+          </Project>
+
+          <Project projectName={'UBC-Insights'} photoAlbum={InsightPhotos} projectPoints={InsightPoints} cols={2}
+                   siteURL={''} repo={'https://github.com/tyin76/UBC-Insights'} techStack={['React', 'TypeScript', 'Node', 'Express', 'Mocha', 'Chai']} showSite={false}>
           </Project>
 
           <Project projectName={'F1-Showcase'} photoAlbum={F1Photos} projectPoints={f1ProjectPoints} cols={2}
