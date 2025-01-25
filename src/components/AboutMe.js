@@ -130,7 +130,7 @@ function AboutMe() {
               Hi, my name is <Box component="span" fontWeight="bold">Terence Yin</Box>.
             </CustomTypography>
             <CustomTypography variant="h5">
-              I am a Computer Science student
+              I am a Full-Stack Developer and Computer Science student
             </CustomTypography>
             <CustomTypography variant="h5">
               at The University of British Columbia!
