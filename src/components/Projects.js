@@ -12,7 +12,8 @@ import ImageListItem from '@mui/material/ImageListItem';
 import Button from '@mui/material/Button';
 
 
-const f1ProjectPoints = ['Developed and deployed with React and FireBase', 'Displays real-time driver and team rankings, comprehensive statistics, race schedules, an interactive quiz, and detailed results for both current and past races.' ];
+const f1ProjectPoints = ['Driven by my passion of Formula 1, F1-Showcase is a web application that displays real-time driver and team rankings, comprehensive statistics, race schedules, an interactive quiz, and detailed results for both current and past races.',
+  "React, JavaScript, HTML, CSS, Material UI were used for the frontend.", "Firebase was used for hosting."];
 
 const F1Photos = [
   {
@@ -67,7 +68,9 @@ const F1Photos = [
 
 ]
 
-const vitAlertProjectPoints = ['Developed and deployed with React and FireBase', 'Nutrient tracking website using Edamam Food API that alerts users of deficiencies and possible side effects.']
+const vitAlertProjectPoints = ['VitAlert is a nutrient tracking website using the Edamam Food API that allows users to input all foods they had throughout their day.', 
+  'VitAlert then calculates and alerts the user of nutrient deficiencies and possible side effects associated with these deficiencies.',
+  'React, TypeScript, HTML, CSS, Material UI were used for the frontend.', 'Firebase was used for hosting.']
 
 const vitAlertPhotos = [
   {
@@ -86,7 +89,9 @@ const vitAlertPhotos = [
   },
 ]
 
-const ScriberPoints = ["Scriber is a web application designed to make video transcription effortless. With Scriber, users can transcribe any YouTube video in just seconds. By logging in with their Google account, users can save and download their transcriptions and access a personalized history of past transcriptions at any time. Scriber offers an interactive learning feature: AI-generated quiz questions based on the transcribed video. This allows users to test their understanding for studying or any other purpose they deem fit."]
+const ScriberPoints = ["Scriber is a web application designed to make video transcription effortless. With Scriber, users can transcribe any YouTube video in just seconds. By logging in with their Google account, users can save and download their transcriptions and access a personalized history of past transcriptions at any time. Scriber offers an interactive learning feature: AI-generated quiz questions based on the transcribed video. This allows users to test their understanding for studying or any other purpose they deem fit.",
+  "React, JavaScript, Material UI were used for the frontend.", "Node, MongoDB, and Express were used for the backend.", "OpenAI API provided dynamic quiz generation based on the video's content.", "FireBase was used for user authentication and frontend hosting.", "Railway was used for backend hosting."
+]
 
 const ScriberPhotos = [
   {
@@ -115,7 +120,9 @@ const ScriberPhotos = [
   }
 ]
 
-const sundaePoints = ["Sum-Up Sundae lets users upload a short video to their group once a week, every Sunday. Groups of friends can consistently share and watch each other’s weekly updates, making it easy to stay connected. Users can join existing groups or create new ones, then record and enjoy everyone's highlights together. Make sure to post or else you can't watch other's videos!"]
+const sundaePoints = ["Sum-Up Sundae lets users upload a short video to their group once a week, every Sunday. Groups of friends can consistently share and watch each other’s weekly updates, making it easy to stay connected. Users can join existing groups or create new ones, then record and enjoy everyone's highlights together. Make sure to post or else you can't watch other's videos!", 
+  "React, JavaScript, Material UI, Tailwind were used for the frontend.", 
+  "Express, Node, MongoDB, Livepeer were used for the backend, with Livepeer serving as the video storage and streaming service.", "FireBase was used for user authentication and frontend hosting.", "Railway was used for backend hosting."]
 
 const sundaePhotos = [
   {
@@ -137,7 +144,9 @@ const sundaePhotos = [
   },
 ]
 
-const InsightPoints = ["UBC Insights is a web application that allows users to upload and query course data from over 60 000 sections to gain insights about averages, professors, and trends"];
+const InsightPoints = ["UBC Insights is a web application that allows users to upload and query course data from over 60 000 sections to gain insights about averages, professors, and trends",
+  "React, TypeScript, Material UI were used for the frontend.","Node and Express were used for the backend.", "Mocha and Chai were used for testing."]
+
 
 const InsightPhotos = [
   {
@@ -279,23 +288,23 @@ function Projects() {
 
           
           <Project projectName={'Sum-Up Sundae - nwHacks 2025 Winner'} photoAlbum={sundaePhotos} projectPoints={sundaePoints} cols={2}
-                   siteURL={'https://sum-up-sundae.web.app/'} repo={'https://github.com/tyin76/sum-up-sundae'} techStack={['React', 'JavaScript', 'Tailwind', 'Express', 'Node', 'MongoDB', 'Livepeer']} devpost={'https://devpost.com/software/sum-up-sundae'} showDevpost={true}>
+                   siteURL={'https://sum-up-sundae.web.app/'} repo={'https://github.com/tyin76/sum-up-sundae'} techStack={['React', 'JavaScript', 'Tailwind', 'Material UI', 'Express', 'Node', 'MongoDB', 'Livepeer']} devpost={'https://devpost.com/software/sum-up-sundae'} showDevpost={true}>
           </Project>
           
           <Project projectName={'Scriber'} photoAlbum={ScriberPhotos} projectPoints={ScriberPoints} cols={2}
-                   siteURL={'https://scriber-126cc.web.app/'} repo={'https://github.com/tyin76/Scriber'} techStack={['React', 'JavaScript', 'Node', 'MongoDB', 'Express', 'OpenAI', 'FireBase']}>
+                   siteURL={'https://scriber-126cc.web.app/'} repo={'https://github.com/tyin76/Scriber'} techStack={['React', 'JavaScript', 'Material UI', 'Node', 'MongoDB', 'Express', 'OpenAI', 'FireBase']}>
           </Project>
 
           <Project projectName={'UBC-Insights'} photoAlbum={InsightPhotos} projectPoints={InsightPoints} cols={2}
-                   siteURL={''} repo={'https://github.com/tyin76/UBC-Insights'} techStack={['React', 'TypeScript', 'Node', 'Express', 'Mocha', 'Chai']} showSite={false}>
+                   siteURL={''} repo={'https://github.com/tyin76/UBC-Insights'} techStack={['React', 'TypeScript', 'Material UI', 'Node', 'Express', 'Mocha', 'Chai']} showSite={false}>
           </Project>
 
           <Project projectName={'F1-Showcase'} photoAlbum={F1Photos} projectPoints={f1ProjectPoints} cols={2}
-                   siteURL={'https://f1-showcase.web.app/'} repo={'https://github.com/tyin76/Upgraded-Formula-1-Showcase'} techStack={['React', 'JavaScript', 'HTML', 'CSS', 'FireBase']}
+                   siteURL={'https://f1-showcase.web.app/'} repo={'https://github.com/tyin76/Upgraded-Formula-1-Showcase'} techStack={['React', 'JavaScript', 'Material UI', 'HTML', 'CSS', 'FireBase']}
           ></Project>
           
           <Project projectName={'VitAlert'} photoAlbum={vitAlertPhotos} projectPoints={vitAlertProjectPoints} cols={3}
-                   siteURL={'https://nw-hackers.web.app/'} repo={'https://github.com/tyin76/VitAlert-nwHacks-2024'} techStack={['React', 'TypeScript', 'HTML', 'CSS', 'FireBase']}
+                   siteURL={'https://nw-hackers.web.app/'} repo={'https://github.com/tyin76/VitAlert-nwHacks-2024'} techStack={['React', 'TypeScript', 'Material UI', 'HTML', 'CSS', 'FireBase']}
           ></Project>
           
           
