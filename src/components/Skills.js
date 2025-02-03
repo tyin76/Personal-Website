@@ -14,9 +14,9 @@ import Stack from '@mui/material/Stack';
 
 const languages = ['JavaScript', 'TypeScript', 'Java', 'SQL', 'HTML', 'CSS'];
 
-const frameworksLib = ['React', 'Node', 'Express', 'Mocha', 'Chai'];
+const frameworksLib = ['React', 'Node', 'Express', 'Material UI', 'Mocha', 'Chai'];
 
-const tools = ['FireBase','JUnit', 'Git', 'GitHub'];
+const tools = ['Firebase','JUnit', 'Git', 'GitHub'];
 
 
 function Skills() {
