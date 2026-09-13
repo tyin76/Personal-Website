@@ -3,8 +3,9 @@
 import sharp from 'sharp';
 import { readdir, mkdir, stat } from 'node:fs/promises';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const root = path.resolve(new URL('..', import.meta.url).pathname);
+const root = path.resolve(fileURLToPath(new URL('..', import.meta.url)));
 const outDir = path.join(root, 'src/images/web');
 const sources = [
   { dir: 'src/images', width: 1600, match: /^(sum|Scriber|Insight)-.*\.(png|jpe?g)$/i },
