@@ -1,0 +1,29 @@
+.not-found {
+  min-height: calc(70svh - var(--nav-h));
+  display: flex;
+  align-items: center;
+}
+
+.not-found__card {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.not-found__title {
+  font-size: clamp(28px, 4.5vw, 44px);
+}
+
+.not-found__text {
+  color: var(--text-muted);
+}
+
+.not-found__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}

@@ -1,316 +1,127 @@
-import React, { useState, useEffect } from 'react'
-import '../styles/Projects.css'
-import HomePagePic from '../images/HomePage.svg'
+import React, { useState } from 'react';
+import '../styles/Projects.css';
+import projects from '../data/projects';
+import profile from '../data/profile';
+import Reveal from './Reveal';
+import Gallery from './Gallery';
+import { GitHubIcon, ExternalLinkIcon, ImagesIcon, TrophyIcon, ArrowRightIcon } from './Icons';
 
-//mui imports
-import Grid from '@mui/material/Grid2';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
-import { Stack, Typography } from '@mui/material';
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
-import Button from '@mui/material/Button';
+function ProjectCard({ project, index, onOpenGallery }) {
+  const { name, award, year, tagline, description, stack, links, photos, featured, coverPosition } = project;
 
-
-const f1ProjectPoints = ['Driven by my passion of Formula 1, F1-Showcase is a web application that displays real-time driver and team rankings, comprehensive statistics, race schedules, an interactive quiz, and detailed results for both current and past races.',
-  "React, JavaScript, HTML, CSS, Material UI were used for the frontend.", "Firebase was used for hosting."];
-
-const F1Photos = [
-  {
-    title : 'Home Page',
-    img: require('../F1 Showcase Demo Photos/F1-1.png')
-  },
-
-  {
-    title : 'Home Page',
-    img: require('../F1 Showcase Demo Photos/F1-2.png')
-  },
-
-  {
-    title : 'Home Page',
-    img: require('../F1 Showcase Demo Photos/F1-3.png')
-  },
-
-  {
-    title : 'Home Page',
-    img: require('../F1 Showcase Demo Photos/F1-5.png')
-  },
-
-  {
-    title : 'Home Page',
-    img: require('../F1 Showcase Demo Photos/F1-6.png')
-  },
-
-  {
-    title : 'Home Page',
-    img: require('../F1 Showcase Demo Photos/F1-7.png')
-  },
-
-  {
-    title : 'Home Page',
-    img: require('../F1 Showcase Demo Photos/F1-8.png')
-  },
-
-  {
-    title : 'Home Page',
-    img: require('../F1 Showcase Demo Photos/F1-9.png')
-  },
-
-  {
-    title : 'Home Page',
-    img: require('../F1 Showcase Demo Photos/F1-10.png')
-  },
-
-  {
-    title : 'Home Page',
-    img: require('../F1 Showcase Demo Photos/F1-11.png')
-  },
-
-]
-
-const vitAlertProjectPoints = ['VitAlert is a nutrient tracking website using the Edamam Food API that allows users to input all foods they had throughout their day.', 
-  'VitAlert then calculates and alerts the user of nutrient deficiencies and possible side effects associated with these deficiencies.',
-  'React, TypeScript, HTML, CSS, Material UI were used for the frontend.', 'Firebase was used for hosting.']
-
-const vitAlertPhotos = [
-  {
-    title: 'Photo',
-    img: require('../VitAlert Demo Photos/Vit-1.png')
-  },
-
-  {
-    title: 'Photo',
-    img: require('../VitAlert Demo Photos/Vit-3.png')
-  },
-
-  {
-    title: 'Photo',
-    img: require('../VitAlert Demo Photos/Vit-2.png')
-  },
-]
-
-const ScriberPoints = ["Scriber is a web application designed to make video transcription effortless. With Scriber, users can transcribe any YouTube video in just seconds. By logging in with their Google account, users can save and download their transcriptions and access a personalized history of past transcriptions at any time. Scriber offers an interactive learning feature: AI-generated quiz questions based on the transcribed video. This allows users to test their understanding for studying or any other purpose they deem fit.",
-  "React, JavaScript, Material UI were used for the frontend.", "Node, MongoDB, and Express were used for the backend.", "OpenAI API provided dynamic quiz generation based on the video's content.", "FireBase was used for user authentication and frontend hosting.", "Railway was used for backend hosting."
-]
-
-const ScriberPhotos = [
-  {
-    title: 'Photo',
-    img: require('../images/Scriber-1.png')
-  },
-  {
-    title: 'Photo',
-    img: require('../images/Scriber-2.png')
-  },
-  {
-    title: 'Photo',
-    img: require('../images/Scriber-3.png')
-  },
-  {
-    title: 'Photo',
-    img: require('../images/Scriber-4.png')
-  },
-  {
-    title: 'Photo', 
-    img: require('../images/Scriber-5.png')
-  },
-  {
-    title: 'Photo',
-    img: require('../images/Scriber-6.png')
-  }
-]
-
-const sundaePoints = ["Sum-Up Sundae lets users upload a short video to their group once a week, every Sunday. Groups of friends can consistently share and watch each other’s weekly updates, making it easy to stay connected. Users can join existing groups or create new ones, then record and enjoy everyone's highlights together. Make sure to post or else you can't watch other's videos!", 
-  "React, JavaScript, Material UI, Tailwind were used for the frontend.", 
-  "Express, Node, MongoDB, Livepeer were used for the backend, with Livepeer serving as the video storage and streaming service.", "FireBase was used for user authentication and frontend hosting.", "Railway was used for backend hosting."]
-
-const sundaePhotos = [
-  {
-    title: 'Photo',
-    img: require('../images/sum-1.png')
-  },
-  {
-    title: 'Photo',
-    img: require('../images/sum-2.png')
-  },
-  {
-    title: 'Photo',
-    img: require('../images/sum-4.jpeg')
-  },
-
-  {
-    title: 'Photo',
-    img: require('../images/sum-3.png')
-  },
-]
-
-const InsightPoints = ["UBC Insights is a web application that allows users to upload and query course data from over 60 000 sections to gain insights about averages, professors, and trends",
-  "React, TypeScript, Material UI were used for the frontend.","Node and Express were used for the backend.", "Mocha and Chai were used for testing."]
-
-
-const InsightPhotos = [
-  {
-    title: 'Photo',
-    img: require('../images/Insight-1.png')
-  },
-  {
-    title: 'Photo',
-    img: require('../images/Insight-2.png')
-  },
-  {
-    title: 'Photo',
-    img: require('../images/Insight-3.png')
-  },
-  {
-    title: 'Photo',
-    img: require('../images/Insight-4.png')
-  },
-  {
-    title: 'Photo',
-    img: require('../images/Insight-5.png')
-  },
-  {
-    title: 'Photo',
-    img: require('../images/Insight-6.png')
-  }
-
-]
-
-function Project({projectName, photoAlbum, projectPoints, cols, repo, siteURL, techStack=['hello', 'bye'], showSite=true, showDevpost=false, devpost=''}) {
   return (
-    <div className='project'>
-      <Box component={'section'}
-          sx={{ p: 2, border: '1px solid grey',
-                width:'80%',
-                margin: '0 auto',
-                backgroundColor: '#ADB5BD',
-                borderRadius: '1em',
-                boxShadow: '0 0 2rem #6C757D',
-                marginBottom: '30px' 
-          }}>
-            
-      <Stack
-      direction={'column'}
-      textAlign={'center'}>
-        <h2 style={{ color: '#212529', marginTop : 0, fontFamily: 'Roboto-BoldItalic'}}>{projectName}</h2>
-        <ul style={{ paddingLeft: 40, textAlign: 'left', marginTop: 0, fontSize: '20px'}}>
-          {projectPoints.map((entry) => {
-            return <li style={{ color: '#212529', fontFamily: 'Roboto-MediumItalic'}}>{entry}</li>
-          })}
+    <Reveal
+      as="article"
+      className={`project card ${featured ? 'project--featured' : ''}`}
+      delay={(index % 2) * 80}
+    >
+      <button
+        type="button"
+        className="project__cover"
+        onClick={() => onOpenGallery(project, 0)}
+        aria-label={`Open ${name} screenshots`}
+      >
+        <img
+          src={photos[0]}
+          alt=""
+          loading={featured ? 'eager' : 'lazy'}
+          style={coverPosition ? { objectPosition: coverPosition } : undefined}
+        />
+        <span className="project__cover-hint">
+          <ImagesIcon />
+          {photos.length} screenshots
+        </span>
+      </button>
 
-        </ul>
-        
-        <Box sx={{
-          textAlign: 'left',
-          color: '#212529',
-          fontFamily: 'Roboto-MediumItalic',
-          fontSize: '20px', 
-        }}>
-        <Typography sx={{
-          fontFamily: 'Roboto-BoldItalic',
-          fontSize: '20px',
-          paddingLeft: '20px'
-        }}>Tech Stack:</Typography>
-        <ul>
-          {techStack.map((entry, index) => {
-            return <li key={index}>{entry}</li>
-          })}
-        </ul>
-        </Box>
-
-        <div className='links'>
-        
-        {showSite && <a
-        href={siteURL}
-        target="_blank" 
-        rel="noopener noreferrer"
-        style={{ fontFamily: 'Roboto-BoldItalic', width: 'auto'}}>
-        <Button variant='contained'
-        sx={{ fontFamily: 'Roboto-BoldItalic', backgroundColor: '#343A40', 
-        color: '#CED4DA', 
-        width:'auto', 
-        display: 'inline-block'}}>
-          Visit Site</Button>
-        </a>
-        }
-
-        <a
-        href={repo}
-        target="_blank" 
-        rel="noopener noreferrer"
-        style={{ fontFamily: 'Roboto-BoldItalic'}}>
-        <Button variant='contained'
-        sx={{ fontFamily: 'Roboto-BoldItalic', backgroundColor: '#DEE2E6', color: '#343A40'}}>
-        GitHub Repo</Button>
-        </a>
-
-        {showDevpost && <a
-        href={devpost}
-        target="_blank" 
-        rel="noopener noreferrer"
-        style={{ fontFamily: 'Roboto-BoldItalic'}}>
-        <Button variant='contained'
-        sx={{ fontFamily: 'Roboto-BoldItalic', backgroundColor: '#343A40', color: '#CED4DA'}}>
-        Visit Devpost</Button>
-        </a>}
-        
+      <div className="project__body">
+        <div className="project__top">
+          <h3 className="project__name">
+            {name}
+            {year && <span className="project__year">{year}</span>}
+          </h3>
+          {award && (
+            <span className="project__award">
+              <TrophyIcon />
+              {award}
+            </span>
+          )}
         </div>
-      
+        <p className="project__tagline">{tagline}</p>
+        <p className="project__description">{description}</p>
 
-        <ImageList sx={{ width: '100%', height: 'auto', marginTop : 0 }} cols={cols} rowHeight='auto'>
-      {photoAlbum.map((item) => (
-        <ImageListItem key={item.img}>
-          <img
-            srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-            src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-            alt={item.title}
-            loading="lazy"
-            style={{ borderRadius : '2em' }}
-          />
-        </ImageListItem>
-      ))}
-    </ImageList>
+        <ul className="project__stack" aria-label="Tech stack">
+          {stack.map((tech) => (
+            <li key={tech} className="chip">
+              {tech}
+            </li>
+          ))}
+        </ul>
 
-
-      </Stack>
-      </Box>
-
-
-
-    </div>
-  )
+        <div className="project__links">
+          {links.site && (
+            <a className="btn btn-primary btn-sm" href={links.site} target="_blank" rel="noopener noreferrer">
+              Live site
+              <ExternalLinkIcon />
+            </a>
+          )}
+          <a className="btn btn-ghost btn-sm" href={links.repo} target="_blank" rel="noopener noreferrer">
+            <GitHubIcon />
+            Source
+          </a>
+          {links.devpost && (
+            <a className="btn btn-ghost btn-sm" href={links.devpost} target="_blank" rel="noopener noreferrer">
+              Devpost
+              <ExternalLinkIcon />
+            </a>
+          )}
+          <button type="button" className="project__gallery-btn" onClick={() => onOpenGallery(project, 0)}>
+            View screenshots
+            <ArrowRightIcon />
+          </button>
+        </div>
+      </div>
+    </Reveal>
+  );
 }
 
 function Projects() {
+  const [gallery, setGallery] = useState(null);
+
+  const openGallery = (project, index) => setGallery({ project, index });
+  const closeGallery = () => setGallery(null);
+
   return (
-    <div className='projects-container'>
-      <h2 className='projects-header'>Projects</h2>
+    <section id="projects" className="section projects" aria-labelledby="projects-title">
+      <div className="container">
+        <Reveal className="section-head">
+          <span className="eyebrow">Selected work</span>
+          <h2 id="projects-title" className="section-title">
+            Projects
+          </h2>
+          <p className="section-lede">
+            Things I&rsquo;ve built for hackathons, coursework and fun. Click any cover to browse the
+            screenshots.
+          </p>
+        </Reveal>
 
-          
-          <Project projectName={'Sum-Up Sundae - nwHacks 2025 Winner'} photoAlbum={sundaePhotos} projectPoints={sundaePoints} cols={2}
-                   siteURL={'https://sum-up-sundae.web.app/'} repo={'https://github.com/tyin76/sum-up-sundae'} techStack={['React', 'JavaScript', 'Tailwind', 'Material UI', 'Express', 'Node', 'MongoDB', 'Livepeer']} devpost={'https://devpost.com/software/sum-up-sundae'} showDevpost={true}>
-          </Project>
-          
-          <Project projectName={'Scriber'} photoAlbum={ScriberPhotos} projectPoints={ScriberPoints} cols={2}
-                   siteURL={'https://scriber-126cc.web.app/'} repo={'https://github.com/tyin76/Scriber'} techStack={['React', 'JavaScript', 'Material UI', 'Node', 'MongoDB', 'Express', 'OpenAI', 'FireBase']}>
-          </Project>
+        <div className="projects__grid">
+          {projects.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={index} onOpenGallery={openGallery} />
+          ))}
+        </div>
 
-          <Project projectName={'UBC-Insights'} photoAlbum={InsightPhotos} projectPoints={InsightPoints} cols={2}
-                   siteURL={''} repo={'https://github.com/tyin76/UBC-Insights'} techStack={['React', 'TypeScript', 'Material UI', 'Node', 'Express', 'Mocha', 'Chai']} showSite={false}>
-          </Project>
+        <Reveal className="projects__more">
+          <p>More on GitHub, including course projects and experiments.</p>
+          <a className="btn btn-ghost" href={profile.github} target="_blank" rel="noopener noreferrer">
+            <GitHubIcon />
+            github.com/tyin76
+          </a>
+        </Reveal>
+      </div>
 
-          <Project projectName={'F1-Showcase'} photoAlbum={F1Photos} projectPoints={f1ProjectPoints} cols={2}
-                   siteURL={'https://f1-showcase.web.app/'} repo={'https://github.com/tyin76/Upgraded-Formula-1-Showcase'} techStack={['React', 'JavaScript', 'Material UI', 'HTML', 'CSS', 'FireBase']}
-          ></Project>
-          
-          <Project projectName={'VitAlert'} photoAlbum={vitAlertPhotos} projectPoints={vitAlertProjectPoints} cols={3}
-                   siteURL={'https://nw-hackers.web.app/'} repo={'https://github.com/tyin76/VitAlert-nwHacks-2024'} techStack={['React', 'TypeScript', 'Material UI', 'HTML', 'CSS', 'FireBase']}
-          ></Project>
-          
-          
-          
-    </div>
-  )
+      {gallery && <Gallery project={gallery.project} initialIndex={gallery.index} onClose={closeGallery} />}
+    </section>
+  );
 }
 
-export default Projects
+export default Projects;
