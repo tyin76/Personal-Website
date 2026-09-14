@@ -158,16 +158,8 @@ function Lumen5Page() {
             {flagships.map((feature, index) => (
               <Reveal key={feature.id} as="li" className={`l5-feature card l5-accent--${feature.color}`} delay={(index % 2) * 80}>
                 <div className="l5-feature__body">
-                  <p className="eyebrow">
-                    {feature.period} · {feature.kicker}
-                  </p>
                   <h3 className="l5-feature__title">{feature.title}</h3>
                   <p className="l5-feature__text">{feature.body}</p>
-                  <p className="l5-feature__refs">
-                    {feature.refs.map((ref) => (
-                      <span key={ref}>{ref}</span>
-                    ))}
-                  </p>
                   {feature.stack && (
                     <ul className="l5-feature__stack" aria-label="Built with">
                       {feature.stack.map((tech) => (

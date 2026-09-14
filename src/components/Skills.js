@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/Skills.css';
 import skills from '../data/skills';
 import Reveal from './Reveal';
+import TechLogo, { hasTechLogo } from './TechLogo';
 
 function Skills() {
   return (
@@ -28,7 +29,8 @@ function Skills() {
               <p className="skills__blurb">{group.blurb}</p>
               <ul className="skills__list">
                 {group.items.map((item) => (
-                  <li key={item} className="chip">
+                  <li key={item} className={`chip skills__chip ${hasTechLogo(item) ? 'skills__chip--logo' : ''}`}>
+                    <TechLogo name={item} size={15} />
                     {item}
                   </li>
                 ))}

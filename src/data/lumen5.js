@@ -47,12 +47,9 @@ export const stats = [
 export const flagships = [
   {
     id: 'stickers',
-    period: 'Aug 2025 — Aug 2026',
-    kicker: 'My longest-running project',
     title: 'Stickers',
     body:
-      'Animated stickers users can drop onto their videos. It started as an upgrade to a third-party GIF integration and became a year-long product line: sticker search, category carousels, an uploads tab so customers could bring their own, timing controls, snapping, static stickers from a new provider, search caching and, in my final week, cropping.',
-    refs: ['18 pull requests over 12 months', 'Largest PR changed 4,000+ lines', 'Uploads feature touched 67 files'],
+      'Owned a user-facing content feature from first prototype to a mature product line over twelve months. I designed and built search, user uploads, timing controls and cropping, tuned performance with caching, and kept shipping through a change of data provider. It became the most-used thing I built and the foundation two later features were built on.',
     scores: [
       { value: 75313, label: 'stickers placed in videos' },
       { value: 6988, label: 'creators used them' },
@@ -63,12 +60,9 @@ export const flagships = [
   },
   {
     id: 'global-templates',
-    period: 'Nov 2025 — Sep 2026',
-    kicker: 'My capstone',
     title: 'Shared design system, restructured',
     body:
-      'Lumen5’s video templates draw on a library of shared designs. The way that library was distributed had grown into an all-or-nothing arrangement that was blocking a category of designs the product team wanted to ship. I proposed a modular, opt-in model, gathered feedback from the whole team, revised the design, then shipped it across the web app and the rendering engine and documented it for the people who would maintain it.',
-    refs: ['Design proposal reviewed by the whole team', '15 pull requests across two repositories', 'Core change: 1,300 lines across 28 files'],
+      'Led the redesign of how reusable design assets are shared across the product’s template library. I wrote the technical proposal, gathered and incorporated feedback from engineers, designers and product, then shipped the new model across the web app and the rendering engine and documented it for the people who maintain it. The change unblocked a category of designs the team had wanted to ship for months.',
     scores: [
       { value: 10, label: 'tickets, Nov to Sep' },
       { value: 2, label: 'design proposals written' },
@@ -79,12 +73,9 @@ export const flagships = [
   },
   {
     id: 'sfx',
-    period: 'Jan — Jul 2026',
-    kicker: 'Zero to fully rolled out',
     title: 'Sound effects',
     body:
-      'Sound effects that play when stickers, text and icons animate on screen. I built the picker UI from an empty file, then the recommendation logic that suggests effects automatically, fixed audio buffering in the rendering engine, added analytics and an internal demo, and wrote a Slack bot that posted example videos to the team for feedback. It survived a company QA session and two rounds of revisions before going out to everyone.',
-    refs: ['22 pull requests across two repositories', 'Initial UI: 1,200+ lines', 'Three rounds of recommendation tuning'],
+      'Took a brand-new feature from an empty file to general availability. I built the user interface, the logic that recommends effects automatically and the audio plumbing inside the rendering engine, instrumented it with analytics, and ran feedback rounds with the wider team before a staged rollout to every user.',
     scores: [
       { value: 495, label: 'effects applied' },
       { value: 150, label: 'users in the first two months' },
@@ -95,12 +86,9 @@ export const flagships = [
   },
   {
     id: 'pronunciation',
-    period: 'May — Aug 2026',
-    kicker: 'Built for an enterprise customer',
     title: 'Pronunciation override',
     body:
-      'AI voiceovers kept mispronouncing product names, and the only fix was a global dictionary entry that changed every video a customer had ever made. I built a per-instance override: fix this one word, in this one spot, with an audio preview and a path to make the fix permanent if you want. It was piloted with one customer first, then rolled out to everyone.',
-    refs: ['5 pull requests', 'Core change: 1,100 lines across 26 files', 'Feature-flagged rollout, flag removed after launch'],
+      'Turned a recurring customer complaint into a shipped feature. Users could only correct a mispronounced word globally, which changed every video they had ever made; I built a precise per-instance fix with an audio preview, released it behind a feature flag, piloted it with one customer, then rolled it out to everyone.',
     scores: [
       { value: 34088, label: 'overrides applied' },
       { value: 2999, label: 'people using it' },
@@ -111,12 +99,9 @@ export const flagships = [
   },
   {
     id: 'react-modernisation',
-    period: 'May — Sep 2025',
-    kicker: 'Engineering health',
     title: 'Modernising the React codebase',
     body:
-      'A large share of the front end was still written as React class components, which blocked hooks adoption and made the code inconsistent for new contributors. I worked out a repeatable workflow for converting them safely with Claude Code, then converted 47 components across the dashboard, settings, media library, feeds, billing and editor, each as a small pull request a reviewer could read in minutes, keeping or adding tests along the way.',
-    refs: ['47 pull requests, each independently reviewable', 'Zero user-facing regressions', 'Workflow documented for the team to reuse'],
+      'Improved the health of a large front-end codebase while still shipping product work. I designed a repeatable, AI-assisted workflow for converting legacy React class components to modern hooks, then applied it to 47 components as small, independently reviewable pull requests with zero regressions, making the codebase easier for new contributors to work in.',
     scores: [
       { value: 47, label: 'components converted' },
       { value: 209, label: 'commits in June 2025 alone' },

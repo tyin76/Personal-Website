@@ -60,6 +60,22 @@
   margin-top: 18px;
 }
 
+.skills__chip {
+  gap: 7px;
+}
+
+.skills__chip .tech-logo {
+  color: var(--brand);
+  opacity: 0.85;
+  flex: none;
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.skills__chip:hover .tech-logo {
+  opacity: 1;
+  transform: scale(1.12);
+}
+
 @media (min-width: 720px) {
   .skills__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
