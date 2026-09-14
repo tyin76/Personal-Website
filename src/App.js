@@ -1,66 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-import './styles/Fonts.css'
-import yinYang from './images/yy.svg'
-import NavBar from './components/NavBar.js'
-import AboutMe from './components/AboutMe.js';
-import Skills from './components/Skills.js'
-import Projects from './components/Projects.js'
-import { useRef } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
+import ScrollManager from './components/ScrollManager';
+import HomePage from './pages/HomePage';
+import Lumen5Page from './pages/Lumen5Page';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
-
-  const aboutMeRef = useRef(null);
-  const skillsRef = useRef(null);
-  const projectRef = useRef(null);
-
-  const scrollToComponent = (ref) => {
-    ref.current.scrollIntoView({ behavior : 'smooth' })
-  }
-
   return (
-    <div className='app-container'>
-      <div className="App">
-      
-        <header className="App-header">
-          <NavBar 
-          scrollToAbout={() => scrollToComponent(aboutMeRef)}
-          scrollToSkills={() => scrollToComponent(skillsRef)}
-          scrollToProjects={() => scrollToComponent(projectRef)}>
-          </NavBar>
-        </header>
-
-        <div className='about-me' ref={aboutMeRef}>
-            <AboutMe></AboutMe>
-        </div>
-
-        <div className='separator'>
-        </div>
-
-        
-        <div className='skills-div' ref={skillsRef}>
-          <Skills>
-
-          </Skills>
-        </div>
-
-        <div className='separator'>
-        </div>
-
-        <div className='projects-div' ref={projectRef}>
-            <Projects>
-              
-            </Projects>
-
-        </div>
-
-        <div className='copyright'>
-            <h3>Copyright © 2024 Terence Yin</h3>
-        </div>
-
-
-      </div>
-    </div>
+    <>
+      <ScrollManager />
+      <NavBar />
+      <main id="main">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/lumen5" element={<Lumen5Page />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </main>
+      <Footer />
+    </>
   );
 }
 

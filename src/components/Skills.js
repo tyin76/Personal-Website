@@ -1,105 +1,46 @@
-import React, { useEffect, useState } from 'react'
-import '../styles/Skills.css'
-
-//mui imports
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
-
-
-const languages = ['JavaScript', 'TypeScript', 'Java', 'Python', 'C', 'C++', 'SQL', 'HTML'];
-
-const frameworksLib = ['React', 'Node', 'Express', 'CSS', 'Tailwind', 'Material UI', 'Mocha', 'Chai'];
-
-const tools = ['Firebase', 'Oracle', 'Git', 'GitHub', 'Postman', 'Railway', 'Figma', 'JupyterLab', 'JUnit', ];
-
+import React from 'react';
+import '../styles/Skills.css';
+import skills from '../data/skills';
+import Reveal from './Reveal';
+import TechLogo, { hasTechLogo } from './TechLogo';
 
 function Skills() {
-
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-      const timer = setTimeout(() => {
-        setIsVisible(true);
-      }, 300)
-
-      return () => clearTimeout(timer);
-  }, [])
-
-
   return (
-    
-    <div className={`skills-container ${isVisible ? 'fade-in' : ''}`}>
-        <h2 className='skills-header'>Skills</h2>
+    <section id="skills" className="section skills" aria-labelledby="skills-title">
+      <div className="container">
+        <Reveal className="section-head">
+          <span className="eyebrow">Toolkit</span>
+          <h2 id="skills-title" className="section-title">
+            Skills
+          </h2>
+          <p className="section-lede">
+            The languages, frameworks and tools I reach for most. Comfortable across the stack and happy to
+            pick up whatever the problem needs.
+          </p>
+        </Reveal>
 
-        <div className='tables-div'>
-        <Stack 
-        direction='column' 
-        spacing={3}
-        textAlign={'center'}
-        sx={{
-          justifyContent: 'center',
-          p : '10px',
-          color: '#CED4DA'
-        }}
-      >
-        <h3 style={{ fontSize : '22px'}}>Languages</h3>
-        {languages.map((entry) => {
-          return <p style={{ fontSize : '18px'}} className='skills-content'>{entry}</p>
-        })}
-      </Stack>
-
-      <Stack 
-        direction='column' 
-        spacing={3}
-        textAlign={'center'}
-        sx={{
-          justifyContent: 'center',
-          p : '10px',
-          color: '#CED4DA'
-        }}
-      >
-        <h3 style={{ fontSize : '22px'}}>Frameworks / Libraries</h3>
-        {frameworksLib.map((entry) => {
-          return <p style={{ fontSize : '18px'}} className='skills-content'>{entry}</p>
-        })}
-      </Stack>
-
-
-      <Stack 
-        direction='column' 
-        spacing={3}
-        textAlign={'center'}
-        sx={{
-          justifyContent: 'center',
-          p : '10px',
-          color: '#CED4DA'
-        }}
-      >
-        <h3 style={{ fontSize : '22px'}}>Tools</h3>
-        {tools.map((entry) => {
-          return <p style={{ fontSize : '18px'}} className='skills-content'>{entry}</p>
-        })}
-      </Stack>
-    
-    
-
-        </div>      
-
-
-
-
-
-
-    </div>
-    
-    
-  )
+        <div className="skills__grid">
+          {skills.map((group, index) => (
+            <Reveal key={group.title} as="article" className="skills__group card" delay={index * 90}>
+              <span className="skills__index" aria-hidden="true">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <h3 className="skills__title">{group.title}</h3>
+              <p className="skills__blurb">{group.blurb}</p>
+              <ul className="skills__list">
+                {group.items.map((item) => (
+                  <li key={item} className={`chip skills__chip ${hasTechLogo(item) ? 'skills__chip--logo' : ''}`}>
+                    <TechLogo name={item} size={15} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 
-export default Skills
+export default Skills;
